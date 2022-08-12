@@ -16,3 +16,10 @@ model Pix {
   updatedAt DateTime @updatedAt
   key String @unique
 }
+
+model Transaction {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  amount Float
+}
