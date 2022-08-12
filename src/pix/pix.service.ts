@@ -2,7 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class PixService {
-  createPix() {}
+  createPix(dto) {
+    return 'oi'
+  }
 
   getPixes() {}
 
