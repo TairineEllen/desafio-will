@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { PixDto } from './dto';
+import { EditPixDto } from './dto/edit-pix.dto';
 
 @Injectable()
 export class PixService {
@@ -30,7 +31,19 @@ export class PixService {
     return pix;
   }
 
-  editPix() {}
+  async editPix(pixId: number, dto: EditPixDto) {
+    const pixUdpated = await this.prisma.pix.update({
+      where: {
+        id: pixId
+      },
+      data: {
+        ...dto
+      }
+    });
+
+    return pixUdpated;
+
+  }
 
   deletePix() {}
 }

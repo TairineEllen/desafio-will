@@ -1,6 +1,7 @@
 import { Controller, Delete, Get, Post, Put, Body, Param, ParseIntPipe } from '@nestjs/common';
 import { PixService } from './pix.service';
 import { PixDto } from './dto';
+import { EditPixDto } from './dto/edit-pix.dto';
 
 @Controller('pix')
 export class PixController {
@@ -21,9 +22,9 @@ export class PixController {
     return this.pixService.getPixById(pixId);
   }
 
-  @Put('/')
-  editPix() {
-    return 'Pix edited';
+  @Put(':id')
+  editPix(@Param('id', ParseIntPipe) pixId: number, @Body() dto: EditPixDto) {
+    return this.pixService.editPix(pixId, dto);
   }
 
   @Delete('/')
