@@ -11,10 +11,12 @@ export class PixController {
     return this.pixService.createPix(dto);
   }
 
-  @Get('/')
+  @Get()
   getPixes() {
-    return 'All pixes';
+    return this.pixService.getPixes();
   }
+
+  @Get(':id')
 
   @Put('/')
   editPix() {

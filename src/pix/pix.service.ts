@@ -15,7 +15,10 @@ export class PixService {
     return pix;
   }
 
-  getPixes() {}
+  async getPixes() {
+    const pixes = await this.prisma.pix.findMany();
+    return pixes;
+  }
 
   editPix() {}
 
