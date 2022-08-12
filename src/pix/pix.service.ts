@@ -1,4 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class PixService {}
+export class PixService {
+  createPix() {}
+
+  getPixes() {}
+
+  editPix() {}
+
+  deletePix() {}
+}
