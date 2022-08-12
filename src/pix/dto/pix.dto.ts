@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { IsPixValid } from '../validator/CustomPix';
+import { IsPixValid } from '../decorator/ValidatePix';
 
 export class PixDto {
   @IsPixValid({
@@ -9,4 +9,3 @@ export class PixDto {
   @IsNotEmpty()
   key: string;
 }
-
