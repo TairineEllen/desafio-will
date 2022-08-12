@@ -1,7 +1,5 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
-import { IsPixValid } from 'src/pix/validator/CustomPix';
-import { isFloat32Array } from 'util/types';
-
+import { IsPixValid } from 'src/pix/decorator/ValidatePix';
 
 export class TransactionDto {
   @IsPixValid({
@@ -12,6 +10,7 @@ export class TransactionDto {
   key: string;
 
   @IsNumber()
+  @IsNotEmpty()
   amount: number
 }
 

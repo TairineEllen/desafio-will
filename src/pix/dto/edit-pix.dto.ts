@@ -1,4 +1,4 @@
-import { IsPixValid } from '../validator/CustomPix';
+import { IsPixValid } from '../decorator/ValidatePix';
 import { IsString } from 'class-validator';
 
 export class EditPixDto {
