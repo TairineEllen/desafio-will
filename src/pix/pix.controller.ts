@@ -27,8 +27,8 @@ export class PixController {
     return this.pixService.editPix(pixId, dto);
   }
 
-  @Delete('/')
-  deletePix() {
-    return 'Pix deleted';
+  @Delete(':id')
+  deletePix(@Param('id', ParseIntPipe) pixId: number) {
+    return this.pixService.deletePix(pixId);
   }
 }

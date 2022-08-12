@@ -42,8 +42,13 @@ export class PixService {
     });
 
     return pixUdpated;
-
   }
 
-  deletePix() {}
+  async deletePix(pixId: number) {
+    await this.prisma.pix.delete({
+      where: {
+        id: pixId
+      }
+    });
+  }
 }
