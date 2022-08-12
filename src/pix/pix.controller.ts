@@ -1,14 +1,23 @@
-import { Controller, Delete, Get, Post, Put, Body, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Post,
+  Put,
+  Body,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { PixService } from './pix.service';
 import { PixDto } from './dto';
 import { EditPixDto } from './dto/edit-pix.dto';
 
 @Controller('pix')
 export class PixController {
-  constructor (private pixService: PixService) {}
+  constructor(private pixService: PixService) {}
 
   @Post('create')
-  createPix(@Body() dto: PixDto) {    
+  createPix(@Body() dto: PixDto) {
     return this.pixService.createPix(dto);
   }
 
