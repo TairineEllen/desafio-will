@@ -3,7 +3,7 @@ import { IsString } from 'class-validator';
 
 export class EditPixDto {
   @IsPixValid({
-    message: 'Chave pix inválida! Insira email ou CPF válido',
+    message: 'Invalid pix! Please enter CPF or email',
   })
   @IsString()
   key: string;
