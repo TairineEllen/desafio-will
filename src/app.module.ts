@@ -4,6 +4,6 @@ import { PrismaModule } from './prisma/prisma.module';
 import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
-  imports: [PixModule, PrismaModule, TransactionModule]  
+  imports: [PixModule, PrismaModule, TransactionModule],
 })
 export class AppModule {}

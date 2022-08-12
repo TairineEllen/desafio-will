@@ -8,25 +8,25 @@ export class TransactionService {
   async createTransaction(dto: TransactionDto) {
     const pix = await this.prisma.pix.findFirst({
       where: {
-        key: dto.key
-      }
+        key: dto.key,
+      },
     });
 
     if (!pix) {
       throw new NotFoundException('Pix not found in Will Bank database');
     }
-    
+
     try {
       const transaction = await this.prisma.transaction.create({
         data: {
           key: dto.key,
-          amount: dto.amount
-        }
+          amount: dto.amount,
+        },
       });
-  
+
       return transaction;
-    } catch (error) {     
+    } catch (error) {
       throw error;
-    } 
+    }
   }
 }

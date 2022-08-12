@@ -1,4 +1,10 @@
-import { registerDecorator, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, isEmail } from "class-validator";
+import {
+  registerDecorator,
+  ValidationOptions,
+  ValidatorConstraint,
+  ValidatorConstraintInterface,
+  isEmail,
+} from 'class-validator';
 import { cpf } from 'cpf-cnpj-validator';
 
 export function IsPixValid(validationOptions?: ValidationOptions) {
@@ -7,9 +13,9 @@ export function IsPixValid(validationOptions?: ValidationOptions) {
       propertyName: propertyName,
       target: object.constructor,
       options: validationOptions,
-      validator: IsPixConstraint
-    })
-  }
+      validator: IsPixConstraint,
+    });
+  };
 }
 
 @ValidatorConstraint({ name: 'IsPixValid' })

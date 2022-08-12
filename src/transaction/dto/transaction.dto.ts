@@ -3,7 +3,7 @@ import { IsPixValid } from 'src/pix/decorator/ValidatePix';
 
 export class TransactionDto {
   @IsPixValid({
-    message: 'Chave pix inválida! Insira email ou CPF válido'
+    message: 'Chave pix inválida! Insira email ou CPF válido',
   })
   @IsString()
   @IsNotEmpty()
@@ -11,6 +11,5 @@ export class TransactionDto {
 
   @IsNumber()
   @IsNotEmpty()
-  amount: number
+  amount: number;
 }
-

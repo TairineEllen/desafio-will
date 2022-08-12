@@ -8,6 +8,6 @@ export class TransactionController {
 
   @Post('new')
   createTransaction(@Body() dto: TransactionDto) {
-    return this.transactionService.createTransaction(dto)
+    return this.transactionService.createTransaction(dto);
   }
 }
