@@ -20,7 +20,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "db:dev:rm": "docker compose rm will-db -s -f -v",
-    "db:dev:up": "docker compose up will-db -d",    
+    "db:dev:up": "docker compose up will-db -d",
     "db:dev:restart": "yarn db:dev:rm && yarn db:dev:up && sleep 1 && yarn prisma:dev:deploy",
     "prisma:dev:deploy": "prisma migrate deploy"
   },
@@ -31,6 +31,7 @@
     "@prisma/client": "^4.2.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "cpf-cnpj-validator": "^1.0.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
