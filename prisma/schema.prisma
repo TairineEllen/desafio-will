@@ -21,5 +21,6 @@ model Transaction {
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  key String @unique
   amount Float
 }
