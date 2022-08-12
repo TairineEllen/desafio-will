@@ -13,7 +13,7 @@ export class TransactionService {
     });
 
     if (!pix) {
-      throw new NotFoundException('Chave não cadastrada na instituição Will Bank');
+      throw new NotFoundException('Pix not found in Will Bank database');
     }
     
     try {
