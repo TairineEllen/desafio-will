@@ -20,6 +20,16 @@ export class PixService {
     return pixes;
   }
 
+  async getPixById(pixId: number) {
+    const pix = await this.prisma.pix.findFirst({
+      where: {
+        id: pixId
+      }
+    });
+
+    return pix;
+  }
+
   editPix() {}
 
   deletePix() {}

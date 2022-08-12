@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Post, Put, Body } from '@nestjs/common';
+import { Controller, Delete, Get, Post, Put, Body, Param, ParseIntPipe } from '@nestjs/common';
 import { PixService } from './pix.service';
 import { PixDto } from './dto';
 
@@ -17,6 +17,9 @@ export class PixController {
   }
 
   @Get(':id')
+  getPixById(@Param('id', ParseIntPipe) pixId: number) {
+    return this.pixService.getPixById(pixId);
+  }
 
   @Put('/')
   editPix() {
