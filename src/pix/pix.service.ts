@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { PixDto } from './dto';
@@ -38,10 +38,24 @@ export class PixService {
       }
     });
 
+    if (!pix) {
+      throw new NotFoundException('Pix not found');
+    }
+
     return pix;
   }
 
   async editPix(pixId: number, dto: EditPixDto) {
+    const pix = await this.prisma.pix.findFirst({
+      where: {
+        id: pixId
+      }
+    });
+
+    if (!pix) {
+      throw new NotFoundException('Pix not found');
+    }
+
     const pixUdpated = await this.prisma.pix.update({
       where: {
         id: pixId
@@ -55,6 +69,16 @@ export class PixService {
   }
 
   async deletePix(pixId: number) {
+    const pix = await this.prisma.pix.findFirst({
+      where: {
+        id: pixId
+      }
+    });
+
+    if (!pix) {
+      throw new NotFoundException('Pix not found');
+    }
+    
     await this.prisma.pix.delete({
       where: {
         id: pixId
