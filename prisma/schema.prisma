@@ -6,6 +6,13 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Pix {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  key String @unique
 }
