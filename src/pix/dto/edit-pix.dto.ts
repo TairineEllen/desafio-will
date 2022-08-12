@@ -1,7 +1,10 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsPixValid } from '../validator/CustomPix';
+import { IsString } from 'class-validator';
 
 export class EditPixDto {
-  @IsEmail()
+  @IsPixValid({
+    message: 'Chave pix inválida! Insira email ou CPF válido'
+  })
   @IsString()
   key: string;
 }
