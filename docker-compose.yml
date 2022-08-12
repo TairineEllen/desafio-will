@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  will-db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+    - ~/apps/mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
