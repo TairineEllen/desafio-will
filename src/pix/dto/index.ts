@@ -1,3 +1,3 @@
 export * from './pix.dto';
-export * from './pix.dto';
+export * from './edit-pix.dto';
 
