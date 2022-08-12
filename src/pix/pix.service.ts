@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { PixDto } from './dto';
 import { EditPixDto } from './dto/edit-pix.dto';
@@ -8,12 +9,21 @@ export class PixService {
   constructor(private prisma: PrismaService) {}
 
   async createPix(dto: PixDto) {
-    const pix = await this.prisma.pix.create({
-      data: {
-        key: dto.key
+    try {
+      const pix = await this.prisma.pix.create({
+        data: {
+          key: dto.key
+        }
+      });
+      return pix;
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError) {
+        if (error.code === 'P2002') {
+          throw new ForbiddenException('Pix already registered');
+        }
       }
-    });
-    return pix;
+      throw error;
+    }    
   }
 
   async getPixes() {
