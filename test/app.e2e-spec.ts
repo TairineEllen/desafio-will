@@ -6,7 +6,6 @@ import { AppModule } from '../src/app.module';
 import { EditPixDto, PixDto } from 'src/pix/dto';
 import { TransactionDto } from 'src/transaction/dto';
 
-
 describe('Test end 2 end', () => {
   let app: INestApplication;
   let prisma: PrismaService;
