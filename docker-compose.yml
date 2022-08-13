@@ -10,7 +10,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     networks:
       - willbank
-   test-db:
+  test-db:
     image: postgres:13
     ports:
       - 5435:5432
