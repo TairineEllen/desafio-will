@@ -15,6 +15,11 @@ deverá conter os seguintes módulos.
 - A API também possui um endpoint que recebe as transações pix
 - A transação deve verificar se a chave pix existe no banco de dados
 
+### Algumas observações
+ 
+- O projeto foi configurado com docker através do `docker-compose`
+- As variáveis de ambiente estão descritas no arquivo `.env.example`
+
 ##### Models
 
 | Pix	       | Transactions |
