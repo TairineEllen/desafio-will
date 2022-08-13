@@ -8,11 +8,21 @@ describe('Pix Controller', () => {
   let pixController: PixController;
   let pixService: PixService
 
-  beforeEach(async () => {
+  beforeAll(async () => {
+    const PixServiceProvider = {
+      provide: PixService,
+      useFactory: () => ({
+        createPix: jest.fn(() => []),
+        getPixes: jest.fn(() => []),
+        getPixById: jest.fn(() => { }),
+        editPix: jest.fn(() => { }),
+        deletePix: jest.fn(() => { })
+      })
+    };
+
     const moduleRef = await Test.createTestingModule({
       controllers: [PixController],
-      providers: [PixService, PrismaService]
-      
+      providers: [PixService, PixServiceProvider]      
     }).compile();
 
     pixService = moduleRef.get<PixService>(PixService);
@@ -28,13 +38,9 @@ describe('Pix Controller', () => {
     });
   });
 
-  describe('getPixes', () => {
-    it('should return all pixes', async () => {
-      const response = ['test'] as any;
-      jest.spyOn(pixService, 'getPixes').mockImplementation(() => response);
-      expect(await pixController.getPixes()).toBe(response);
-    });
-  });
+  
+
+ 
 
   
 
