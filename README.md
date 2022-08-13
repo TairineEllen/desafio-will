@@ -7,9 +7,13 @@ deverá conter os seguintes módulos.
 
 ### Como funciona?
 
-- O usuário bote cadastrar uma chave do tipo CPF ou valor (um erro é disparado caso a chave seja diferente)
+- O usuário pode cadastrar uma chave do tipo CPF ou valor (um erro é disparado caso a chave seja diferente)
 - A mesma chave não pode ser cadastrada mais de uma vez
-- Todas as chaves ficam salvas no banco de dados `pix`, onde há dois models
+- Todas as chaves ficam salvas no banco de dados `pix`, onde há dois models.
+- O usuário pode criar, listar, editar e excluir as chaves pix.
+
+- A API também possui um endpoint que recebe as transações pix
+- A transação deve verificar se a chave pix existe no banco de dados
 
 ##### Models
 
