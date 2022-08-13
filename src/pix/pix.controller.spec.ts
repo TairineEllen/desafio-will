@@ -1,5 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { PrismaService } from '../prisma/prisma.service';
+import { PixDto } from './dto';
 import { PixController } from './pix.controller';
 import { PixService } from './pix.service';
 
@@ -18,6 +19,15 @@ describe('Pix Controller', () => {
     pixController = moduleRef.get<PixController>(PixController);
   });
 
+  describe('createPix', () => {
+    it('should create a pix', async () => {
+     const dto: PixDto = {
+      key: 'email@will.com'
+     }
+     expect(pixController.createPix(dto)).not.toEqual(null);
+    });
+  });
+
   describe('getPixes', () => {
     it('should return all pixes', async () => {
       const response = ['test'] as any;
@@ -25,4 +35,10 @@ describe('Pix Controller', () => {
       expect(await pixController.getPixes()).toBe(response);
     });
   });
+
+  
+
+
+
+  
 })
