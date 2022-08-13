@@ -38,7 +38,12 @@ describe('Pix Controller', () => {
     });
   });
 
-  
+  it("should create a pix", () => {
+    const dto: PixDto = {
+      key: 'teste@teste.com'
+    };
+    expect(pixController.createPix(dto)).not.toEqual(null);
+  })
 
  
 
