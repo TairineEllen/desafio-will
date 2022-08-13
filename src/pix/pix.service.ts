@@ -60,7 +60,7 @@ export class PixService {
       throw new NotFoundException('Pix not found');
     }
 
-    const pixUdpated = await this.prisma.pix.update({
+    const pixUpdated = await this.prisma.pix.update({
       where: {
         id: pixId,
       },
@@ -69,7 +69,7 @@ export class PixService {
       },
     });
 
-    return pixUdpated;
+    return pixUpdated;
   }
 
   async deletePix(pixId: number) {
