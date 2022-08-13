@@ -19,6 +19,7 @@ deverá conter os seguintes módulos.
  
 - O projeto foi configurado com docker através do `docker-compose`
 - As variáveis de ambiente estão descritas no arquivo `.env.example`
+- A documentação gerada pelo Swagger pode ser vista em `http://localhost:3000/api`
 
 ##### Models
 
