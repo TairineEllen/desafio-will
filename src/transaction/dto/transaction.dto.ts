@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
-import { IsPixValid } from 'src/pix/decorator/ValidatePix';
+import { IsPixValid } from '../../pix/decorator/ValidatePix';
 
 export class TransactionDto {
   @IsPixValid({
